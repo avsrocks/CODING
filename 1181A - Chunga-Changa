@@ -1,0 +1,41 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define doub long long int 
+bool cmp(pair<int ,int >&i1,pair<int ,int >&i2)
+{
+    if(i1.first==i2.first)
+    {
+        return i1.second < i2.second ;
+    }
+    return i1.first > i2.first;
+}
+int main() {
+doub x,y,z,newy,newx;
+cin>>x>>y>>z;
+doub ans,maxm,minm=0;
+ans=x/z + y/z;
+maxm=ans;
+doub rem1=x%z;
+//minm=rem1;
+newy=y+rem1;
+doub temp= x/z + newy/z;
+//cout<<temp<<endl;
+maxm=max(maxm,temp);
+if(maxm==temp)
+{
+    if(rem1-newy%z>=0)
+       minm=rem1-newy%z;
+}
+rem1=y%z;
+
+newx=x+rem1;
+temp=newx/z+y/z;
+maxm=max(maxm,temp);
+if(maxm==temp)
+{
+    if(rem1-newx%z>=0)
+       minm=min(minm,rem1-newx%z);
+}
+cout<<maxm<<" "<<minm<<endl;
+	
+}
