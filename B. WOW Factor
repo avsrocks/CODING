@@ -1,0 +1,56 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define doub long long int 
+bool cmp(pair<int ,int >&i1,pair<int ,int >&i2)
+{
+    if(i1.first==i2.first)
+    {
+        return i1.second < i2.second ;
+    }
+    return i1.first > i2.first;
+}
+int main() {
+string s;
+cin>>s;
+int n=s.size();
+doub pre[n]={0},suf[n]={0};
+int cnt=0,flag=0;
+for(int i=1;i<n;i++)
+{
+   if(s[i]=='v' && s[i-1]=='v')
+   {
+       pre[i]=pre[i-1]+1;
+   }
+   else
+   {
+     pre[i]=pre[i-1];
+     
+   }
+  
+}
+//cnt=0,flag=0;
+for(int i=n-2;i>=0;i--)
+{
+    if(s[i]=='v' && s[i+1]=='v')
+    {
+        suf[i]=suf[i+1]+1;
+    }
+    else
+    {
+        suf[i]=suf[i+1];
+    }
+    
+}
+long long int ans=0;
+for(int i=0;i<n;i++)
+{
+    
+    if(s[i]=='o')
+    {
+        //cout<<pre[i]<<" ";
+        ans+=(pre[i])*(suf[i]);
+    }
+}
+//cout<<endl;
+cout<<ans<<endl;
+}
