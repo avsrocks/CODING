@@ -1,0 +1,38 @@
+#include <bits/stdc++.h>
+#define ll long long int 
+using namespace std;
+
+int main() {
+
+       int t;
+       cin>>t;
+       while(t--)
+       {
+           ll a,b;
+           cin>>a>>b;
+           ll odd1,even1,odd2,even2;
+           if(a%2!=0)
+              odd1=ceil(a/2) +1;
+          else 
+          odd1=a/2;
+          
+           even1=a-odd1;
+           
+           if(b%2!=0)
+              odd2=ceil(b/2) +1;
+          else 
+          odd2=b/2;
+          
+           //odd2=ceil(b/2);
+           even2=b-odd2;
+           //cout<<odd2<<endl;
+           //cout<<even2<<endl;
+           long long int ans;
+           ans=odd1*odd2 + even1*even2;
+           //cout<< odd1*odd2 + even1*even2<<endl;
+           cout<<ans<<endl;
+       }
+	
+	
+	
+}
